@@ -100,7 +100,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -324,7 +324,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'ingDLMRuGe9UKHRNjs7cYckS2yul4lc3';
 
 /*
 |--------------------------------------------------------------------------
@@ -414,8 +414,13 @@ $config['cookie_httponly'] 	= FALSE;
 | Determines whether to standardize newline characters in input data,
 | meaning to replace \r\n, \r, \n occurrences with the PHP_EOL value.
 |
+<<<<<<< HEAD
+| This is particularly useful for portability between UNIX-based OSes,
+| (usually \n) and Windows (\r\n).
+=======
 | WARNING: This feature is DEPRECATED and currently available only
 |          for backwards compatibility purposes!
+>>>>>>> e76217041ddcae80f11b50b44a7d409b6722ad40
 |
 */
 $config['standardize_newlines'] = FALSE;
