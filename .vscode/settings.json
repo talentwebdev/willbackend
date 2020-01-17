@@ -1,0 +1,25 @@
+{
+  "files.exclude": {
+    ".DS_Store": "explorerExcludedFiles",
+    "application/cache/*": "explorerExcludedFiles",
+    "!application/cache/index.html": "explorerExcludedFiles",
+    "application/logs/*": "explorerExcludedFiles",
+    "!application/logs/index.html": "explorerExcludedFiles",
+    "!application/*/.htaccess": "explorerExcludedFiles",
+    "composer.lock": "explorerExcludedFiles",
+    "user_guide_src/build/*": "explorerExcludedFiles",
+    "user_guide_src/cilexer/build/*": "explorerExcludedFiles",
+    "user_guide_src/cilexer/dist/*": "explorerExcludedFiles",
+    "user_guide_src/cilexer/pycilexer.egg-info/*": "explorerExcludedFiles",
+    "vendor/": "explorerExcludedFiles",
+    "nbproject/": "explorerExcludedFiles",
+    ".idea/*": "explorerExcludedFiles",
+    "*.tmlanguage.cache": "explorerExcludedFiles",
+    "*.tmPreferences.cache": "explorerExcludedFiles",
+    "*.stTheme.cache": "explorerExcludedFiles",
+    "*.sublime-workspace": "explorerExcludedFiles",
+    "*.sublime-project": "explorerExcludedFiles",
+    "tests/tests/": "explorerExcludedFiles",
+    "tests/results/": "explorerExcludedFiles"
+  }
+}
