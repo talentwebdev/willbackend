@@ -1,6 +1,8 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 require APPPATH . '/libraries/REST_Controller.php';
 
@@ -23,7 +25,7 @@ class Auth extends REST_Controller
      * URL: http://localhost/CodeIgniter-JWT-Sample/auth/token
      * Method: GET
      */
-    public function token_get()
+    public function gettoken_post()
     {
         $tokenData = array();
         $tokenData['id'] = 1; //TODO: Replace with data for token
