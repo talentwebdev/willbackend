@@ -51,4 +51,48 @@ class Users_model extends CI_Model
         }
         return false;
     }
+
+    public function update_profile($id, $data)
+    {
+        $this->name = $data["name"];
+        $this->surname = $data["surname"];
+        $this->id_number = $data["id_number"];
+        $this->email = $data["email"];
+
+        $this->db->where('id', $id)->update('users', $this);
+        return true;
+    }
+
+    public function save_code($email, $code)
+    {
+        $this->code = $code;
+
+        $this->db->where('email', $email)->update('users', $this);
+        return true;
+    }
+
+    public function check_code($email, $code)
+    {
+        $users = $this->db->where(array('email' => $email, 'code' => $code))
+                    ->get('users')
+                    ->result();
+
+        if(count($users) == 0)
+            return false;
+        return true;
+    }
+
+    public function reset_password($email, $password)
+    {
+        $this->password = password_hash($password, PASSWORD_DEFAULT);;
+        $this->db->where('email', $email)->update("users", $this);
+        return true;
+    }
+
+    public function reset_id_password($id, $password)
+    {
+        $this->password = password_hash($password, PASSWORD_DEFAULT);;
+        $this->db->where('id', $id)->update("users", $this);
+        return true;
+    }
 }
