@@ -7,4 +7,3 @@ RewriteRule ^(.*)$ index.php/$1 [L,QSA]
 <FilesMatch ".(eot|ttf|otf|woff)">
     Header set Access-Control-Allow-Origin "*"
 </FilesMatch>
-Header set Access-Control-Allow-Headers: Content-Type

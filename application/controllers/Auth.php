@@ -25,7 +25,7 @@ class Auth extends REST_Controller
      * URL: http://localhost/CodeIgniter-JWT-Sample/auth/token
      * Method: GET
      */
-    public function gettoken_post()
+    public function gettoken_get()
     {
         $tokenData = array();
         $tokenData['id'] = 1; //TODO: Replace with data for token
