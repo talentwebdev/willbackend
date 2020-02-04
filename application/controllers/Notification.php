@@ -43,7 +43,7 @@ class Notification extends REST_Controller
             return $this->set_response(array('status' => false, 'error' => 'UnAuthorized'), REST_Controller::HTTP_OK);
         }
 
-        $this->set_response(array('status' => false, 'error' => 'No authorization field'), REST_Controller::HTTP_OK);
+        $this->set_response(array('status' => false, 'error' => 'No authorization field', 'token' => $jsonArray), REST_Controller::HTTP_OK);
         
         
     }
@@ -73,5 +73,33 @@ class Notification extends REST_Controller
 
         $this->set_response(array('status' => false), REST_Controller::HTTP_OK);
     }
+
+    /**
+     * URL: http://localhost/willbackend/notification/add
+     * Method: POST
+     */
+    public function add_post()
+    {
+        $jsonArray = json_decode(file_get_contents('php://input'),true); 
+        $this->load->model('Notification_model', 'notification');
+
+        if (array_key_exists('authorization', $jsonArray) && !empty($jsonArray['authorization'])) {
+            $decodedToken = AUTHORIZATION::validateToken($jsonArray['authorization']);
+            if ($decodedToken != false) {
+                $id = $decodedToken->id;
+                
+                if($this->notification->add_entry($jsonArray['title'], $jsonArray['content']))
+                {
+                    $this->set_response(array('status' => true), REST_Controller::HTTP_OK);
+                    return;
+                } 
+                               
+            }
+        }
+
+        $this->set_response(array('status' => false), REST_Controller::HTTP_OK);
+    }
+
+    
 
 }

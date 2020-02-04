@@ -55,6 +55,8 @@ class User extends REST_Controller
             $tokenData = array();
             $tokenData['id'] = $users[0]->id; //TODO: Replace with data for token
             $users[0]->token = AUTHORIZATION::generateToken($tokenData);            
+            if($users[0]->type == "admin")
+                $users[0]->expo_tokens = $this->user->get_all_tokens();
             return $this->set_response(array('status' => true, 'data' => $users[0]), REST_Controller::HTTP_OK);
         }        
         

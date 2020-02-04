@@ -38,4 +38,5 @@ class Notification_model extends CI_Model
         
         return $this;
     }
+
 }

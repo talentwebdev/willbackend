@@ -95,4 +95,18 @@ class Users_model extends CI_Model
         $this->db->where('id', $id)->update("users", $this);
         return true;
     }
+
+    public function get_all_tokens()
+    {
+        $users = $this->db->get('users')->result();
+        $tokens = array();
+        
+        foreach($users as $user)
+        {
+            if($user->expo_token != NULL && $user->expo_token != "")
+                array_push($tokens, $user->expo_token);
+        }
+
+        return $tokens;
+    }
 }
